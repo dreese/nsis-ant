@@ -1,0 +1,71 @@
+NSIS Ant Task
+===============
+
+Description
+---------------
+
+Ant task to compile [NSIS](http://nsis.sourceforge.net/) scripts.  Helpful for automating the build process of projects that use the NSIS installer.
+
+To use it, put the NSIS Ant jarfile in an accessible location and add the following to your Ant script: 
+
+    <taskdef name="nsis" classname="net.sf.nsisant.Task">
+        <classpath location="nsisant-{version}.jar">
+    </taskdef>
+
+For more information, please see the [MakeNSIS documentation](http://nsis.sourceforge.net/Docs/Chapter3.html).
+
+NSIS Element Parameters
+---------------
+
+* script (required) &mdash; Path of the NSIS script to compile.
+* verbosity &mdash; How much logging is written to standard output. Default is 0.
+    <ol start="0">
+        <li>no output</li>
+        <li>errors only</li>
+        <li>errors and warnings</li>
+        <li>errors, warnings and info</li>
+        <li>all output</li>
+    </ol>
+* out &mdash; File to which to log the output. Default is standard out.
+* pause &mdash; Whether to pause after execution of the script. Default is no.
+* noconfig &mdash; Whether to disable inclusion of nsisconf.nsh. Default is no.
+* nocd &mdash; Whether to disable changing to the directory containing the script. Default is no.
+* prefix &mdash; The prefix to use for the command-line options to <code>makensis</code>. Default is to use '/' on Windows and '-' otherwise.
+* path &mdash; The directory containing the <code>makensis</code> executable. Default is to search the <code>PATH</code>.
+
+Nested Elements and Parameters
+---------------
+
+**define**
+
+Defines a symbol for the script. Equivalent to the /D (-D on non-Windows platforms) command line parameter of `makensis`. Multiple instances of this element are permitted. It supports the following parameters: 
+
+* name (required) &mdash; The name of the symbol to define.
+* value (required) &mdash; The value of the symbol.
+
+**scriptcmd**
+
+Executes an NSIS command in the script. Equivalent to the /X (-X on non-Windows platforms) command line parameter of `makensis`. Multiple instances of this element are allowed and are executed in the order specified. It supports the following parameters: 
+
+* cmd (required)  &mdash; The NSIS command to execute in the script.
+
+## Examples
+
+Compile a script using all of the default values.
+
+    <nsis script="myproject.nsi"/>
+
+Compile a script with verbose output, logging to a file, and the inclusion of `nsisconf.nsh` disabled. The VERSION symbol is set to the value "2.1" and the "AutoCloseWindow true" command is executed at the beginning of the script. 
+
+    <nsis script="myproject.nsi" verbosity="4" out="build.log" noconfig="yes">
+        <define name="VERSION" value="2.1"/>
+        <scriptcmd cmd="AutoCloseWindow true"/>
+    </nsis&>
+
+* * *
+
+Copyright &copy; 2006-2010 [Daniel L. Reese](http://www.danandcheryl.com/)
+
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
