@@ -49,7 +49,8 @@ Executes an NSIS command in the script. Equivalent to the /X (-X on non-Windows 
 
 * cmd (required)  &mdash; The NSIS command to execute in the script.
 
-## Examples
+Examples
+---------------
 
 Compile a script using all of the default values.
 
