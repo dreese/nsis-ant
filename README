@@ -12,7 +12,7 @@ To use it, put the NSIS Ant jarfile in an accessible location and add the follow
         <classpath location="nsisant-{version}.jar">
     </taskdef>
 
-For more information, please see the [MakeNSIS documentation](http://nsis.sourceforge.net/Docs/Chapter3.html).
+For more information, please visit the [project homepage](http://github.com/dreese/NSIS-Ant) or the [MakeNSIS documentation](http://nsis.sourceforge.net/Docs/Chapter3.html).
 
 NSIS Element Parameters
 ---------------
