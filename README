@@ -4,7 +4,7 @@ NSIS Ant Task
 Description
 ---------------
 
-Ant task to compile [NSIS](http://nsis.sourceforge.net/) scripts. Help automate the build process of projects that use the NSIS installer.
+Ant task for compiling [NSIS](http://nsis.sourceforge.net/) scripts on Windows, Linux and Mac systems. Help automate the build process of projects that use the NSIS installer.
 
 To use it, put the NSIS Ant jarfile in an accessible location and add the following to your Ant script: 
 
@@ -65,8 +65,10 @@ Compile a script with verbose output, logging to a file, and the inclusion of `n
 
 * * *
 
-Copyright &copy; 2006-2010 [Daniel L. Reese](http://www.danandcheryl.com/)
+Copyright &copy; 2004 Wayne Grant
+Copyright &copy; 2005-2010 [Daniel L. Reese](http://www.danandcheryl.com/)
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
