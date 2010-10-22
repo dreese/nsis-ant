@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="nsisant">
+
+	<property name="version" value="1.3" />
+	<property name="name-version" value="${ant.project.name}-${version}" />
+
+	<target name="clean" description="Delete all generated files">
+		<delete dir="bin" />
+		<delete dir="dist" />
+	</target>
+
+	<target name="init" description="Create output directories">
+		<tstamp />
+		<mkdir dir="bin/" />
+		<mkdir dir="dist/" />
+		<mkdir dir="dist/api/" />
+	</target>
+
+	<target name="compile" depends="init" description="Compile the source code">
+		<javac srcdir="src/" destdir="bin/" source="1.4" target="1.4" />
+	</target>
+
+	<target name="javadoc" depends="compile" description="Create the JavaDocs">
+		<javadoc sourcepath="src/" packagenames="*" destdir="dist/api/" windowtitle="NSIS Ant API">
+			<doctitle>NSIS Ant API Documentation</doctitle>
+			<bottom>Copyright &amp;copy; 2004 Wayne Grant&lt;br&gt;Copyright &amp;copy; 2005-2010 Daniel Reese</bottom>
+		</javadoc>
+	</target>
+
+	<target name="jar" depends="compile" description="Creates the jarfile">
+		<jar destfile="dist/${name-version}.jar" basedir="bin/" duplicate="fail">
+			<manifest>
+				<attribute name="Implementation-Title" value="NSIS Ant Task" />
+				<attribute name="Implementation-Version" value="${version}" />
+			</manifest>
+			<indexjars />
+		</jar>
+	</target>
+
+	<target name="dist" depends="jar,javadoc" description="Create distributable file">
+		<zip destfile="dist/${name-version}.zip">
+			<zipfileset dir="." includes="LICENSE.txt" />
+			<zipfileset dir="dist" includes="*.jar" />
+			<zipfileset dir="." includes="src/**/*" />
+			<zipfileset dir="dist" includes="api/**/*" />
+		</zip>
+	</target>
+
+	<target name="test" depends="dist" description="Test the task">
+		<taskdef name="nsis" classname="com.danielreese.nsisant.Task" classpath="${ant.home}/lib/ant.jar;dist/${name-version}.jar" />
+		<nsis script="test.nsi" verbosity="3">
+			<define name="name" value="${ant.project.name}" />
+			<define name="version" value="${version}" />
+		</nsis>
+	</target>
+
+</project>
+
