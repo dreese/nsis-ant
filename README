@@ -4,7 +4,7 @@ NSIS Ant Task
 Description
 ---------------
 
-Ant task to compile [NSIS](http://nsis.sourceforge.net/) scripts.  Helpful for automating the build process of projects that use the NSIS installer.
+Ant task to compile [NSIS](http://nsis.sourceforge.net/) scripts. Help automate the build process of projects that use the NSIS installer.
 
 To use it, put the NSIS Ant jarfile in an accessible location and add the following to your Ant script: 
 
