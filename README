@@ -8,7 +8,7 @@ Ant task for compiling [NSIS](http://nsis.sourceforge.net/) scripts on Windows, 
 
 To use it, put the NSIS Ant jarfile in an accessible location and add the following to your Ant script: 
 
-    <taskdef name="nsis" classname="net.sf.nsisant.Task">
+    <taskdef name="nsis" classname="com.danielreese.nsisant.Task">
         <classpath location="nsisant-{version}.jar">
     </taskdef>
 
