@@ -66,7 +66,7 @@ Compile a script with verbose output, logging to a file, and the inclusion of `n
     <nsis script="myproject.nsi" verbosity="4" out="build.log" noconfig="yes">
         <define name="VERSION" value="2.1"/>
         <scriptcmd cmd="AutoCloseWindow true"/>
-    </nsis&>
+    </nsis>
 
 License
 ---------------
