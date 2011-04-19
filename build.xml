@@ -39,7 +39,7 @@
 
 	<target name="dist" depends="jar,javadoc" description="Create distributable file">
 		<zip destfile="dist/${name-version}.zip">
-			<zipfileset dir="." includes="LICENSE.txt" />
+			<zipfileset dir="." includes="README" />
 			<zipfileset dir="dist" includes="*.jar" />
 			<zipfileset dir="." includes="src/**/*" />
 			<zipfileset dir="dist" includes="api/**/*" />
