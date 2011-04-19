@@ -68,7 +68,8 @@ Compile a script with verbose output, logging to a file, and the inclusion of `n
         <scriptcmd cmd="AutoCloseWindow true"/>
     </nsis&>
 
-* * *
+License
+---------------
 
 Copyright &copy; 2004 Wayne Grant. Relicensed with permission.  
 Copyright &copy; 2005-2010 [Daniel Reese](http://www.danandcheryl.com/)
